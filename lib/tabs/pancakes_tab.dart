@@ -4,19 +4,21 @@ import 'package:flutter/material.dart';
 class PanCakesTab extends StatelessWidget {
 
   //Lista de donas
+  final Function(double) onAdd; // Recibe la función onAdd
+
   final List pancakesOnSale = [
     //[donutFlavor, donutStore, donutPrice, donutColor, imageName]
-    ["Ice Cream", "Krispy Kreme", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape", "Costco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco", "Walmart", "95", Colors.brown, "lib/images/chocolate_donut.png"],
-    ["Ice Cream", "Krispy Kreme", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape", "Costco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco", "Walmart", "95", Colors.brown, "lib/images/chocolate_donut.png"],
+    ["FroggyMugged","Cantaritos","20",Colors.pinkAccent, "lib/images/frogg_pancake.png"],
+    ["All clasic","Colom","120",Colors.blueGrey,  "lib/images/frutita_pancake.png"],
+    ["Absolut", "Donde","15",Colors.pink, "lib/images/mieleros_pancake.png"],
+    ["Piketito","Mixe","90",Colors.purple, "lib/images/morero_pancake.png"],
+    ["Normales","Kukis","70",Colors.yellow, "lib/images/normales_pancake.png"],
+    ["Roblox","Vans","37",Colors.blue,  "lib/images/roblo_pancake.png"],
+    ["Rockk", "HXDERBEZ","10",Colors.brown, "lib/images/rock_pancake.png"],
+    ["BunnyBun","lol","95",Colors.grey, "lib/images/bun_pancake.png"],
   ];
 
-   PanCakesTab({super.key});
+  PanCakesTab({super.key, required this.onAdd}); // Añade onAdd al constructor
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class PanCakesTab extends StatelessWidget {
               pancakesPrice: pancakesOnSale[index][2],
               pancakesColor: pancakesOnSale[index][3],
               imageName: pancakesOnSale[index][4],
+              onAdd: () => onAdd(double.parse(pancakesOnSale[index][2])), // Pasa onAdd con el precio
             );
           });
   }

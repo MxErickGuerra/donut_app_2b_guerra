@@ -8,7 +8,7 @@ class BurgerTile extends StatelessWidget {
   final dynamic burgerColor;
   final String imageName;
 
-  const BurgerTile({super.key, required this.burgerFlavor, required this.burgerStore, required this.burgerPrice, this.burgerColor, required this.imageName});
+  const BurgerTile({super.key, required this.burgerFlavor, required this.burgerStore, required this.burgerPrice, this.burgerColor, required this.imageName, required Function() onAdd});
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@ class PizzaTile extends StatelessWidget {
   final dynamic pizzaColor;
   final String imageName;
 
-  const PizzaTile({super.key, required this.pizzaFlavor, required this.pizzaStore, required this.pizzaPrice, this.pizzaColor, required this.imageName});
+  const PizzaTile({super.key, required this.pizzaFlavor, required this.pizzaStore, required this.pizzaPrice, this.pizzaColor, required this.imageName, required Function() onAdd});
 
   @override
   Widget build(BuildContext context) {

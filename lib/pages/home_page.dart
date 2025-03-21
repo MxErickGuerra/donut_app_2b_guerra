@@ -14,6 +14,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int itemCount = 0; // Cantidad de ítems
+   double totalPrice = 0.0; // Precio total
+ 
+   // Función para agregar un ítem
+   void addItem(double price) {
+     setState(() {
+       itemCount++;
+       totalPrice += price;
+     });
+   }
   //Lista de tabs
   List<Widget> myTabs = [
     //DonutTab
@@ -71,11 +81,11 @@ class _HomePageState extends State<HomePage> {
             //TabBarView (Contenido de pestañas)
             Expanded(
               child: TabBarView(children: [
-              DonutTab(),
-              BurgerTab(),
-              SmoothieTab(),
-              PanCakesTab(),
-              PizzaTab()
+              DonutTab(onAdd: addItem),
+              BurgerTab(onAdd: addItem),
+              SmoothieTab(onAdd: addItem),
+              PanCakesTab(onAdd: addItem),
+              PizzaTab(onAdd: addItem)
               ]),
             ),
             
@@ -87,14 +97,13 @@ class _HomePageState extends State<HomePage> {
                 //Poner los elementos en los extremos de la fila
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 28),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 28),
                     child: Column(
                       //Alinearlo a la izquierda
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '2 Items | \$45',
+                        Text('$itemCount Item | \$${totalPrice.toStringAsFixed(2)}',
                           style: TextStyle(fontSize: 18,
                           //Negritas
                           fontWeight: FontWeight.bold),

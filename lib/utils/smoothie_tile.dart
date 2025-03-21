@@ -8,7 +8,7 @@ class SmoothieTile extends StatelessWidget {
   final dynamic smoothieColor;
   final String imageName;
 
-  const SmoothieTile({super.key, required this.smoothieFlavor, required this.smoothieStore, required this.smoothiePrice, this.smoothieColor, required this.imageName});
+  const SmoothieTile({super.key, required this.smoothieFlavor, required this.smoothieStore, required this.smoothiePrice, this.smoothieColor, required this.imageName, required Function() onAdd});
 
   @override
   Widget build(BuildContext context) {

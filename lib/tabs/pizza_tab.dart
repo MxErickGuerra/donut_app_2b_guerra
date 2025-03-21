@@ -3,20 +3,22 @@ import 'package:flutter/material.dart';
 
 class PizzaTab extends StatelessWidget {
 
-  //Lista de donas
-  final List pizzasOnSale = [
-    //[donutFlavor, donutStore, donutPrice, donutColor, imageName]
-    ["Ice Cream", "Krispy Kreme", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape", "Costco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco", "Walmart", "95", Colors.brown, "lib/images/chocolate_donut.png"],
-    ["Ice Cream", "Krispy Kreme", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape", "Costco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco", "Walmart", "95", Colors.brown, "lib/images/chocolate_donut.png"],
-  ];
+  final Function(double) onAdd;
 
-   PizzaTab({super.key});
+  //Lista de Pizzas
+  final List pizzasOnSale = [ 
+    //[doonutFlavor, pizzaStore, pizzaPrice, pizzaColor, imageName]
+    ["Anchovies", "Pizza Hut", "36", Colors.red, "lib/images/anchoas_pizza.png"],
+    ["Shrimp", "Messinas", "54", Colors.yellow,  "lib/images/camarones_pizza.png"],
+    ["Mushroom", "Costco", "84", Colors.brown, "lib/images/champiñon_pizza.png"],
+    ["Pepperoni", "Domino's", "95", Colors.purple, "lib/images/peperoni_pizza.png"],
+    ["Peppers", "Pizza y corre", "36", Colors.green, "lib/images/pimiento_pizza.png"],
+    ["Salami", "Sanetis", "84", Colors.brown, "lib/images/salami_pizza.png"],
+    ["Pineapple", "Superpizza", "54", Colors.yellow,  "lib/images/piña_pizza.png"],
+    ["Sausage", "Baleros", "95", Colors.red, "lib/images/salchicha_pizza.png"],
+   ];
+
+   PizzaTab({super.key, required this.onAdd});
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class PizzaTab extends StatelessWidget {
               pizzaPrice: pizzasOnSale[index][2],
               pizzaColor: pizzasOnSale[index][3],
               imageName: pizzasOnSale[index][4],
+              onAdd: () => onAdd(double.parse(pizzasOnSale[index][2])),
             );
           });
   }

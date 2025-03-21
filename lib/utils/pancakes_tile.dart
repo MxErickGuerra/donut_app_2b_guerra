@@ -8,7 +8,7 @@ class PancakesTile extends StatelessWidget {
   final dynamic pancakesColor;
   final String imageName;
 
-  const PancakesTile({super.key, required this.pancakesFlavor, required this.pancakesStore, required this.pancakesPrice, this.pancakesColor, required this.imageName});
+  const PancakesTile({super.key, required this.pancakesFlavor, required this.pancakesStore, required this.pancakesPrice, this.pancakesColor, required this.imageName, required Function() onAdd});
 
   @override
   Widget build(BuildContext context) {

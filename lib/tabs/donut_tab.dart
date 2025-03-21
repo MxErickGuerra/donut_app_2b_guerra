@@ -4,20 +4,21 @@ import 'package:flutter/material.dart';
 class DonutTab extends StatelessWidget {
 
   //Lista de donas
+  final Function(double) onAdd; // Recibe la función onAdd
+
   final List donutsOnSale = [
     //[donutFlavor, donutStore, donutPrice, donutColor, imageName]
     ["Ice Cream", "Krispy Kreme", "36", Colors.blue, "lib/images/icecream_donut.png"],
     ["Strawberry", "Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
     ["Grape Ape", "Costco", "84", Colors.purple, "lib/images/grape_donut.png"],
     ["Choco", "Walmart", "95", Colors.brown, "lib/images/chocolate_donut.png"],
-    ["Ice Cream", "Krispy Kreme", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape", "Costco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco", "Walmart", "95", Colors.brown, "lib/images/chocolate_donut.png"],
+    ["katita","kitis y algo mas","100",Colors.pink, "lib/images/kat_donut.png"],
+    ["kitilibum","kitis y algo mas","401",Colors.deepPurple,  "lib/images/kiti_donut.png"],
+    ["dononon", "seth roguen","700",Colors.cyan, "lib/images/guap_donut.png"],
+    ["allinone","cocina economica","95",Colors.orange, "lib/images/spagueti_donut.png"],
   ];
 
-   DonutTab({super.key});
-
+  DonutTab({super.key, required this.onAdd}); // Añade onAdd al constructor
   @override
   Widget build(BuildContext context) {
     //Como sale el widget acomodar elementos en cuadricula
@@ -37,6 +38,7 @@ class DonutTab extends StatelessWidget {
               donutPrice: donutsOnSale[index][2],
               donutColor: donutsOnSale[index][3],
               imageName: donutsOnSale[index][4],
+              onAdd: () => onAdd(double.parse(donutsOnSale[index][2])), // Pasa onAdd con el precio
             );
           });
   }
